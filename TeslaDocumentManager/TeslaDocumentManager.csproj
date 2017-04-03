@@ -101,6 +101,7 @@
       <DependentUpon>AdminPageKorisnici.aspx</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="FileMenager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -56,7 +56,7 @@ namespace TeslaDocumentManager
                     int ok = cmd.ExecuteNonQuery();
                     if (ok == 1)
                         return true;
-                    else throw new Exception("User nije obrisan");
+                    else throw new Exception("User nije bre obrisan");
                 }
             }
             catch(Exception ex)
