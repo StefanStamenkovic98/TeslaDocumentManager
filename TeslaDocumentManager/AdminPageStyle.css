@@ -1,18 +1,76 @@
 ﻿body {
     margin : 0 auto;
+    background-color: #ccc;
 }
 #Page{
-   background: url(background.jpg);
-   width:100%;
-   height: 800px;
+   background-color: white;
+   text-align: center;
+   margin: auto;
+   margin-top: 20px;
+   width: 800px;
+   height: 500px;
+   border: 1px solid #ccc;
+   border-radius: 50px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+.header{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.top_hr, .bottom_hr{
+    border-color: #ccc;
+    border-style: solid;
+    border-top: 1px;
+}
+
+.top.hr{
+    width: 796px;
+}
+
+#btnOdjava{
+    background-color: #ccc;
+    border: none;
+    border-radius: 10px;
+}
+
+#btnOdjava:hover{
+    background-color: #b7b7b7;
+}
+
+.button{
+    height: 30px;
+    width: 80px;
+    margin: 9px;
+    background-color: #ffb347;
+    border: none;
+    border-radius: 20px;
+}
+
+.button:hover{
+    background-color: #ff8547;
+}
+
+.row{
+    display: inline-block;
+    margin: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 300px;
+    border-radius: 30px;
+}
+
 .mydatagrid
 {
     width: 80%;
     border: solid 2px black;
     min-width: 80%;
 }
-.header
+
+.header-grid
 {
     background-color: #646464;
     font-family: Arial;
@@ -22,7 +80,7 @@
     text-align: center;
     font-size: 16px;
 }
-.rows
+.rows-grid
 {
     background-color: #fff;
     font-family: Arial;
@@ -32,7 +90,7 @@
     text-align: left;
     border: none 0px transparent;
 }
-.rows:hover
+.rows-grid:hover
 {
     background-color: #ff8000;
     font-family: Arial;

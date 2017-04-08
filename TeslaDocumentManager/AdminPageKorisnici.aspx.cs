@@ -19,13 +19,13 @@ namespace TeslaDocumentManager
             {
                 datagrid.DataSource = a.AllUsers;
                 datagrid.DataBind();
-                if (a.LoadUserGroupList())
+                /*if (a.LoadUserGroupList())
                 {
                     ddlAccessLevel.DataSource = a.UserGroupsList;
                     ddlAccessLevel.DataValueField = "Id";
                     ddlAccessLevel.DataTextField = "Name";
                     ddlAccessLevel.DataBind();
-                }
+                }*/
             }
         }
 
