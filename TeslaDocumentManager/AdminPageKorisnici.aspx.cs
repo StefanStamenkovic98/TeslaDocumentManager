@@ -13,20 +13,13 @@ namespace TeslaDocumentManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblOperater.Text = UserLogIn.UserLoggedIn(this.Request).FullName;
+            /*lblOperater.Text = UserLogIn.UserLoggedIn(this.Request).FullName;
             Admin a = new Admin();
             if(a.LoadAllUsers())
             {
                 datagrid.DataSource = a.AllUsers;
                 datagrid.DataBind();
-                /*if (a.LoadUserGroupList())
-                {
-                    ddlAccessLevel.DataSource = a.UserGroupsList;
-                    ddlAccessLevel.DataValueField = "Id";
-                    ddlAccessLevel.DataTextField = "Name";
-                    ddlAccessLevel.DataBind();
-                }*/
-            }
+            }*/
         }
 
         protected void lnkOdjava_Click(object sender, EventArgs e)
@@ -42,8 +35,13 @@ namespace TeslaDocumentManager
             a.Id = ((HiddenField)datagrid.Rows[e.RowIndex].FindControl("Id")).Value;
             if(a.DeleteUser())
             {
-                datagrid.DataSource = a.LoadAllUsers();
-                datagrid.DataBind();
+                datagrid.DataSource = null;
+                UserLogIn user = new UserLogIn();
+                if (user.LoadAllUsers())
+                {
+                    datagrid.DataSource = user.AllUsers;
+                    datagrid.DataBind();
+                }
             }
             else
             {
@@ -51,5 +49,17 @@ namespace TeslaDocumentManager
             }
         }
 
+        protected void datagrid_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            Admin a = new Admin();
+            a.Id = ((HiddenField)datagrid.Rows[e.NewEditIndex].FindControl("Id")).Value;
+            Session["UserID"] = a.Id;
+            Response.Redirect("~/UpdateUser.aspx");
+        }
+
+        protected void btnDodajKorisnika_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SaveUser.aspx");
+        }
     }
 }

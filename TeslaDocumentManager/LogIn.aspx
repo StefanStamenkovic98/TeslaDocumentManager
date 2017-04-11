@@ -16,10 +16,10 @@
                 </div>
                 <asp:Label ID="error_message" runat="server" Visible="false" Text=""></asp:Label>
                 <div class="username">
-                    <asp:textbox id="tbx_username" runat="server"></asp:textbox>
+                    <asp:textbox id="tbx_username" runat="server" placeholder="Username"></asp:textbox>
                 </div>
                 <div class="pass">
-                    <asp:TextBox ID="tbx_pass" TextMode="Password" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbx_pass" TextMode="Password" runat="server" placeholder="Password"></asp:TextBox>
                 </div>
                 <div class="login">
                     <asp:Button ID="btn_login" runat="server" Text="Uloguj se" OnClick="btn_login_Click" />

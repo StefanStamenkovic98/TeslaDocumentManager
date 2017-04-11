@@ -30,7 +30,7 @@ namespace TeslaDocumentManager
                         {
                             UserGroup ug = new UserGroup();
                             ug.id = dr[0].ToString();
-                            ug.accesslevel = Convert.ToInt32(dr[1]);
+                            ug.name = dr[1].ToString();
                             UserGroupsList.Add(ug);
                         }
                     }
@@ -43,6 +43,38 @@ namespace TeslaDocumentManager
                 return false;
             }
         }
+
+        public UserLogIn UserPretraga()
+        {
+            try
+            {
+                SqlCommand cmd = DBConnection.GetCommand;
+                cmd.CommandText = "select u.*,g.Name,g.AccessLevel from Users as u " +
+                                    "inner join UserGroups as g on u.UserGroupID = g.Id " +
+                                    "where u.ID = @id";
+                cmd.Parameters.AddWithValue("@id", this.Id);
+                using (cmd.Connection)
+                {
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                        if(dt.Rows.Count == 1)
+                        {
+                            UserLogIn user = new UserLogIn(dt.Rows[0]);
+                            return user;
+                        }
+                        else throw new Exception("User ne postoji");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Message = ex.Message;
+                return null;
+            }
+        }
+
         public bool DeleteUser()
         {
             try
@@ -66,46 +98,143 @@ namespace TeslaDocumentManager
             }
         }
 
-        public bool CheckUser()//proveriti dali postoji user u bazi
+        public bool CheckUserName(string name)
         {
             try
             {
                 SqlCommand cmd = DBConnection.GetCommand;
-                cmd.CommandText = "";
-                using (cmd.Connection)
+                cmd.CommandText = "select u.Id from Users as u where u.Username = @username";
+                cmd.Parameters.AddWithValue("@username", name);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {
-                    cmd.Connection.Open();
-                    int ok = cmd.ExecuteNonQuery();
-                    if (ok == 1)
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt.Rows.Count == 0)
+                    {
                         return true;
-                    else throw new Exception("User postoji");
+                    }
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                Message = ex.Message;
+                ErrMessage = "Pristup korisnicima nije moguc.";
                 return false;
             }
         }
 
-        public bool CreateUser()//kreirati novog usera u bazi
+        public bool CheckEmail(string email)
         {
             try
             {
                 SqlCommand cmd = DBConnection.GetCommand;
-                cmd.CommandText = "";
+                cmd.CommandText = "select u.Id from Users as u where u.Email = @email";
+                cmd.Parameters.AddWithValue("@email", email);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt.Rows.Count == 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrMessage = "Pristup korisnicima nije moguc.";
+                return false;
+            }
+        }
+
+        public bool CreateUser()
+        {
+            try
+            {
+                SqlCommand cmd = DBConnection.GetCommand;
+                cmd.CommandText = "insert into Users " +
+                "values(@id, @username, @fullname, @pass, @email, @active, @usergroupid, @phone, @note, @emailver)";
+                cmd.Parameters.AddWithValue("@id", new Guid());
+                cmd.Parameters.AddWithValue("@username", this.UserName);
+                cmd.Parameters.AddWithValue("@fullname", this.FullName);
+                cmd.Parameters.AddWithValue("@pass", this.Password);
+                cmd.Parameters.AddWithValue("@email", this.Email);
+                cmd.Parameters.AddWithValue("@active", this.Active);
+                cmd.Parameters.AddWithValue("@usergroupid", this.UserGroupId);
+                if (this.Phone != string.Empty)
+                    cmd.Parameters.AddWithValue("@phone", DBNull.Value);
+                else cmd.Parameters.AddWithValue("@phone", this.Phone);
+                if (this.Note != string.Empty)
+                    cmd.Parameters.AddWithValue("@note", DBNull.Value);
+                else cmd.Parameters.AddWithValue("@note", this.Note);
+                cmd.Parameters.AddWithValue("@emailver", false);
                 using (cmd.Connection)
                 {
                     cmd.Connection.Open();
                     int ok = cmd.ExecuteNonQuery();
                     if (ok == 1)
+                    {
                         return true;
-                    else throw new Exception("User nije upisan");
+                    }
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                Message = ex.Message;
+                ErrMessage = "Pristup korisnicima nije moguc.";
+                return false;
+            }
+        }
+
+        public bool UpdateUser()
+        {
+            try
+            {
+                SqlCommand cmd = DBConnection.GetCommand;
+                cmd.CommandText = "update users set " +
+                        "Fullname = @fullname, " +
+                        "UserGroupID = @usergroupid, " +
+                        "Active = @active, " +
+                        "Phone = @phone, " +
+                        "Note = @note " +
+                        "where Id = @id";
+                cmd.Parameters.AddWithValue("@id", this.Id);
+                cmd.Parameters.AddWithValue("@fullname", this.FullName);
+                if (this.Password != string.Empty)
+                {
+                    cmd.Parameters.AddWithValue("@pass", this.Password);
+                    cmd.CommandText = "update users set " +
+                        "Fullname = @fullname, " +
+                        "Password = @pass, " +
+                        "UserGroupID = @usergroupid, " +
+                        "Active = @active, " +
+                        "Phone = @phone, " +
+                        "Note = @note " +
+                        "where Id = @id";
+                }
+                cmd.Parameters.AddWithValue("@active", this.Active);
+                cmd.Parameters.AddWithValue("@usergroupid", this.UserGroupId);
+                if (this.Phone != string.Empty)
+                    cmd.Parameters.AddWithValue("@phone", this.Phone);
+                else cmd.Parameters.AddWithValue("@phone", DBNull.Value);
+                if (this.Note != string.Empty)
+                    cmd.Parameters.AddWithValue("@note", this.Note);
+                else cmd.Parameters.AddWithValue("@note", DBNull.Value);
+                using (cmd.Connection)
+                {
+                    cmd.Connection.Open();
+                    int ok = cmd.ExecuteNonQuery();
+                    if (ok == 1)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrMessage = "Pristup korisnicima nije moguc.";
                 return false;
             }
         }

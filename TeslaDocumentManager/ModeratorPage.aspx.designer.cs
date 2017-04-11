@@ -10,7 +10,7 @@
 namespace TeslaDocumentManager {
     
     
-    public partial class AdminPage2 {
+    public partial class ModeratorPage {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,13 @@ namespace TeslaDocumentManager {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblOperater control.
+        /// lblModerator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOperater;
+        protected global::System.Web.UI.WebControls.Label lblModerator;
         
         /// <summary>
         /// btnOdjava control.
@@ -38,15 +38,6 @@ namespace TeslaDocumentManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOdjava;
-        
-        /// <summary>
-        /// btnPrikaziKorisnike control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrikaziKorisnike;
         
         /// <summary>
         /// btnDodajDomen control.

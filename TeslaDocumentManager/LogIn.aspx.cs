@@ -18,11 +18,23 @@ namespace TeslaDocumentManager
                 {
                     error_message.Visible = false;
                     UserLogIn user = UserLogIn.UserLoggedIn(this.Request);
-                    if (user.AccessLevel == 1)
+                    switch (user.AccessLevel)
                     {
-                        //admin-moderator-user
-                        Response.Redirect("~/AdminPage.aspx");//nece?
-                        return;
+                        case 1:
+                            {
+                                Response.Redirect("~/AdminPage.aspx");
+                                break;
+                            }
+                        case 2:
+                            {
+                                Response.Redirect("~/AdminPage.aspx");
+                                break;
+                            }
+                        case 3:
+                            {
+                                Response.Redirect("~/UserPage.aspx");
+                                break;
+                            }
                     }
                     error_message.Text = "Podaci za prijavu nisu tačni!";
                     error_message.ForeColor = System.Drawing.Color.Red;
@@ -34,8 +46,8 @@ namespace TeslaDocumentManager
         protected void btn_login_Click(object sender, EventArgs e)
         {
             error_message.Visible = false;
-            //string pass = FormsAuthentication.HashPasswordForStoringInConfigFile(tbx_pass.Text, "SHA1");
-            if (UserLogIn.LogInUser(Response, tbx_username.Text, tbx_pass.Text))
+            string pass = FormsAuthentication.HashPasswordForStoringInConfigFile(tbx_pass.Text, "SHA1");
+            if (UserLogIn.LogInUser(Response, tbx_username.Text, pass))
             {
                 switch (Convert.ToInt32(Request.Cookies["AccessLevel"].Value))
                 {

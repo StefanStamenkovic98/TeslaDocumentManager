@@ -18,31 +18,30 @@
 .header_left{
     display: inline-block;
     float: left;
-    width: 300px;
+    width: 150px;
     height: 35px;
     padding-top: 18px;
     padding-bottom: 2px;
-    padding-right: 100px;
+    padding-right: 75px;
+}
+
+.header_mid{
+    display: inline-block;
+    float: left;
+    width: 350px;
+    height: 35px;
+    padding-top: 18px;
+    padding-bottom: 2px;
 }
 
 .header_right{
     display: inline-block;
     float: right;
-    width: 280px;
+    width: 150px;
     height: 35px;
     padding-top: 16px;
     padding-bottom: 4px;
-    padding-left: 120px;
-}
-
-.header_right_double{
-    display: inline-block;
-    float: right;
-    width: 320px;
-    height: 35px;
-    padding-top: 16px;
-    padding-bottom: 4px;
-    padding-left: 80px;
+    padding-left: 75px;
 }
 
 .top_hr{
@@ -52,23 +51,9 @@
     width: 796px;
 }
 
-#btnOdjava{
-    background-color: #ccc;
-    border: none;
-    border-radius: 10px;
-}
-
-#btnOdjava:hover, #btnOdjava:focus{
-    background-color: #b7b7b7;
-}
-
-#btnOdjava:active{
-    background-color: #a3a3a3;
-}
-
 .button{
     height: 25px;
-    width: 120px;
+    width: 70px;
     color: white;
     background-color: #ffb347;
     border: none;
@@ -83,114 +68,88 @@
     background-color: #e48600;
 }
 
-.row{
-    display: inline-block;
-    margin: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    width: 300px;
-    border-radius: 30px;
+#btnBack{
+    background-color: #ccc;
+    border: none;
+    border-radius: 10px;
+    height: 20px;
+    width: 60px;
 }
 
-#btnKorisnici{
-    width: 80px;
+#btnBack:hover, #btnBack:focus{
+    background-color: #b7b7b7;
 }
 
-#btnSave, #btnUpdate{
-    height: 30px;
-    margin-top: 10px;
+#btnBack:active{
+    background-color: #a3a3a3;
 }
 
-#btnPrikaziKorisnike{
-    margin-right: 20px;
-}
-
-#btnDodajDomen{
-    margin-right: 40px;
-}
-
-.mydatagrid
-{
+.mydatagrid {
     width: 100%;
-    border: solid 2px black;
-    min-width: 80%;
+    border: none;
+    margin: auto;
 }
 
-.header-grid
-{
+.grid-header {
     background-color: #646464;
-    font-family: Arial;
     color: White;
     border: none 0px transparent;
     height: 25px;
     text-align: center;
     font-size: 16px;
 }
-.rows-grid
-{
+
+.rows {
     background-color: #fff;
-    font-family: Arial;
     font-size: 14px;
-    color: #000;
+    color: black;
     min-height: 25px;
     text-align: left;
     border: none 0px transparent;
 }
-.rows-grid:hover
-{
-    background-color: #ff8000;
-    font-family: Arial;
-    color: #fff;
+
+.rows:hover {
+    background-color: #ffb347;
+    color: black;
     text-align: left;
 }
-.selectedrow
-{
-    background-color: #ff8000;
-    font-family: Arial;
-    color: #fff;
+
+.selectedrow {
+    background-color: #ffb347;
+    color: black;
     font-weight: bold;
     text-align: left;
 }
-.mydatagrid a /** FOR THE PAGING ICONS  **/
-{
+
+.mydatagrid a  {
     background-color: Transparent;
     padding: 5px 5px 5px 5px;
-    color: #fff;
     text-decoration: none;
     font-weight: bold;
 }
-.mydatagrid a:hover /** FOR THE PAGING ICONS  HOVER STYLES**/
-{
-    background-color: #000;
-    color: #fff;
-}
-.mydatagrid span /** FOR THE PAGING ICONS CURRENT PAGE INDICATOR **/
-{
+
+    .mydatagrid a:hover  {
+        background-color: #000;
+    }
+
+.mydatagrid span  {
     background-color: #c9c9c9;
-    color: #000;
+    color: black;
     padding: 5px 5px 5px 5px;
 }
-.pager
-{
+
+.pager {
     background-color: #646464;
-    font-family: Arial;
     color: White;
     height: 30px;
     text-align: left;
 }
-.mydatagrid td
-{
-    padding: 5px;
-}
-.mydatagrid th
-{
+
+.mydatagrid td {
     padding: 5px;
 }
 
-#UpdatePanel1 {
-    display: inline-block;
+.mydatagrid th {
+    padding: 5px;
 }
-
+    

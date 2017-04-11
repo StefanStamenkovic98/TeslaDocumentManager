@@ -10,17 +10,26 @@
 <body>
     <form id="form1" runat="server">
         <div id="Page">
-            Operater:
-            <asp:Label ID="lblOperater" runat="server" Text=""></asp:Label>
-            <asp:LinkButton ID="lnkOdjava" runat="server" OnClick="lnkOdjava_Click">Odjavi se</asp:LinkButton>
+            <div class="header">
+                <div class="header_left">
+                    Operater:
+                    <asp:Label ID="lblOperater" runat="server" Text=""></asp:Label>
+                    <asp:Button ID="btnOdjava" runat="server" Text="Odjavi se" />
+                </div>
+                <div class="header_right">
+                    <asp:Button ID="btnDodajKorisnika" runat="server" Text="Dodaj korisnika" CssClass="button"/>
+                </div>
+                <%--<asp:LinkButton ID="btnDodajKorisnika" runat="server" OnClick="btnDodajKorisnika_Click">Dodaj korisnika</asp:LinkButton>
+                <asp:LinkButton ID="lnkOdjava" runat="server" OnClick="lnkOdjava_Click">Odjavi se</asp:LinkButton>--%>
+            </div>
 
-            <hr class="my_hr" />
+            <hr class="top_hr" />
 
             <asp:Label ID="error_message" runat="server" Visible="false" Text=""></asp:Label>
 
             <div id="DataUsers">
                 <asp:GridView ID="datagrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
-                    HeaderStyle-CssClass="header-grid" RowStyle-CssClass="rows-grid" AllowPaging="True" AutoGenerateColumns="false" OnRowDeleting="datagrid_RowDeleting">
+                    HeaderStyle-CssClass="header-grid" RowStyle-CssClass="rows-grid" AlternatingRowStyle-BackColor="#dadada" BorderStyle="None" GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="false" OnRowDeleting="datagrid_RowDeleting" OnRowEditing="datagrid_RowEditing">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
@@ -48,7 +57,7 @@
                         <asp:TemplateField HeaderText="Note">
                             <ItemTemplate><%#Eval("Note") %></ItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField Visible="true" ShowCancelButton="true" ShowDeleteButton="true" />
+                        <asp:CommandField Visible="true" ShowCancelButton="true" ShowEditButton="true" ShowDeleteButton="true" />
                     </Columns>
                 </asp:GridView>
             </div>

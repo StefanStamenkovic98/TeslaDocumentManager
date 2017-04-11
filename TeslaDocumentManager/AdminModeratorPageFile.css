@@ -1,0 +1,154 @@
+﻿body{
+    background-color: #ccc;
+}
+
+.button{
+    height: 25px;
+    width: 90px;
+    color: white;
+    background-color: #ffb347;
+    border: none;
+    border-radius: 20px;
+}
+
+#btnDodajFile:hover {
+        background-color: #ff9b0c;
+  }
+
+#btnDodajFile:active {
+    background-color: #e48600;
+}
+
+#btnOdjava{
+    background-color: #ccc;
+    border: none;
+    border-radius: 10px;
+}
+
+#btnOdjava:hover, #btnOdjava:focus{
+    background-color: #b7b7b7;
+}
+
+#btnOdjava:active{
+    background-color: #a3a3a3;
+}
+    
+.my_hr{
+    border-color: #ccc;
+    border-style: solid;
+    border-top: 1px;
+}
+
+#Page{
+    background-color: white;
+   text-align: center;
+   margin: auto;
+   margin-top: 20px;
+   width: 800px;
+   height: 500px;
+   border: 1px solid #ccc;
+   border-radius: 50px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.header_left{
+    display: inline-block;
+    float: left;
+    width: 300px;
+    height: 35px;
+    padding-top: 18px;
+    padding-bottom: 2px;
+    padding-right: 100px;
+}
+
+.header_right{
+    display: inline-block;
+    float: right;
+    width: 280px;
+    height: 35px;
+    padding-top: 16px;
+    padding-bottom: 4px;
+    padding-left: 120px;
+}
+
+.mydatagrid {
+    width: 100%;
+    border: none;
+    min-width: 80%;
+}
+
+.grid-header {
+    height: 40px;
+    background-color: #646464;
+    font-family: Arial;
+    color: White;
+    border: none 0px transparent;
+    height: 45px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.rows {
+    background-color: #fff;
+    font-family: Arial;
+    font-size: 14px;
+    color: #000;
+    min-height: 25px;
+    text-align: left;
+    border: none 0px transparent;
+}
+
+.rows:hover {
+    background-color: #ffb347;
+    font-family: Arial;
+    color: #fff;
+    text-align: left;
+}
+
+.selectedrow {
+    background-color: #ffb347;
+    font-family: Arial;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+.mydatagrid a  {
+    background-color: Transparent;
+    padding: 5px 5px 5px 5px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mydatagrid a:hover  {
+    background-color: #000;
+    color: #fff;
+}
+
+.mydatagrid span  {
+    background-color: #c9c9c9;
+    color: #000;
+    padding: 5px 5px 5px 5px;
+}
+
+.pager {
+    background-color: #646464;
+    font-family: Arial;
+    color: White;
+    height: 30px;
+    text-align: left;
+}
+
+.mydatagrid td {
+    padding: 5px;
+}
+
+.mydatagrid th {
+    padding: 5px;
+}
+
+.error_message{
+    margin-top:5px;
+}
+

@@ -31,13 +31,22 @@ namespace TeslaDocumentManager {
         protected global::System.Web.UI.WebControls.Label lblOperater;
         
         /// <summary>
-        /// lnkOdjava control.
+        /// btnOdjava control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkOdjava;
+        protected global::System.Web.UI.WebControls.Button btnOdjava;
+        
+        /// <summary>
+        /// btnDodajKorisnika control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDodajKorisnika;
         
         /// <summary>
         /// error_message control.

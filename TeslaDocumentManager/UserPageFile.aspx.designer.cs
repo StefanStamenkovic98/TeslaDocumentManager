@@ -10,7 +10,7 @@
 namespace TeslaDocumentManager {
     
     
-    public partial class AdminPage2 {
+    public partial class UserPageFile {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,22 @@ namespace TeslaDocumentManager {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblOperater control.
+        /// lblUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOperater;
+        protected global::System.Web.UI.WebControls.Label lblUser;
+        
+        /// <summary>
+        /// btnDodajFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDodajFile;
         
         /// <summary>
         /// btnOdjava control.
@@ -40,24 +49,6 @@ namespace TeslaDocumentManager {
         protected global::System.Web.UI.WebControls.Button btnOdjava;
         
         /// <summary>
-        /// btnPrikaziKorisnike control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrikaziKorisnike;
-        
-        /// <summary>
-        /// btnDodajDomen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDodajDomen;
-        
-        /// <summary>
         /// error_message control.
         /// </summary>
         /// <remarks>
@@ -65,5 +56,14 @@ namespace TeslaDocumentManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label error_message;
+        
+        /// <summary>
+        /// datagrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView datagrid;
     }
 }

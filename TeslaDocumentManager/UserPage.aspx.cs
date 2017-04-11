@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace TeslaDocumentManager
 {
-    public partial class AdminPage2 : System.Web.UI.Page
+    public partial class UserPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //lblOperater.Text = UserLogIn.UserLoggedIn(this.Request).FullName;
-        }
-
-        protected void btnPrikaziKorisnike_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/AdminPageKorisnici.aspx");
+            //lblUser.Text = UserLogIn.UserLoggedIn(this.Request).FullName;
         }
 
         protected void btnOdjava_Click(object sender, EventArgs e)
@@ -25,9 +20,9 @@ namespace TeslaDocumentManager
             Response.Redirect("~/LogIn.aspx");
         }
 
-        protected void btnDodajDomen_Click(object sender, EventArgs e)
+        protected void btnDodajFile_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/EnterFile.aspx");
         }
     }
 }

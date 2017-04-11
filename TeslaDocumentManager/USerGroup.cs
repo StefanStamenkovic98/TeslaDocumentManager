@@ -8,6 +8,7 @@ namespace TeslaDocumentManager
     public class UserGroup
     {
         public string id { get; set; }
+        public string name { get; set; }
         public int accesslevel { get; set; }
     }
 }
